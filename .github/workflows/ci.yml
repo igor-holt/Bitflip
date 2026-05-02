@@ -1,0 +1,49 @@
+name: Genesis Conductor CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  CI_ID: "genesis-conductor-${{ github.run_id }}"
+  AUDIT_CHAIN: "ed25519"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate CI Identity Hash
+        id: ci-id
+        run: |
+          echo "sha=$(echo -n '${{ github.sha }}${{ github.run_id }}' | sha256sum | cut -d' ' -f1)" >> $GITHUB_OUTPUT
+          echo "timestamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_OUTPUT
+
+      - name: Structural Invariance Tests
+        run: |
+          test -f public/assets/conductorkit.css
+          test -f public/assets/barcelona-extropic.css
+          for f in Shared Marketing Dashboard Specimen App; do
+            test -f "public/components/${f}.jsx"
+          done
+
+      - name: Constants Lock Verification
+        run: |
+          grep -q "signal-500: #27e070" public/assets/conductorkit.css
+          grep -q "be-stem.*12px" public/assets/barcelona-extropic.css
+
+      - name: Evolution Guard
+        run: node scripts/evolution-guard.js --verify
+
+      - name: Report CI Identity
+        run: |
+          echo "CI Identity : ${{ env.CI_ID }}"
+          echo "Commit SHA  : ${{ github.sha }}"
+          echo "Run ID      : ${{ github.run_id }}"
+          echo "Hash        : ${{ steps.ci-id.outputs.sha }}"
+          echo "Timestamp   : ${{ steps.ci-id.outputs.timestamp }}"
+          echo "Audit Chain : ${{ env.AUDIT_CHAIN }}"

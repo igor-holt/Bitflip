@@ -1,0 +1,119 @@
+/* ============================================================
+   Barcelona-Extropic — Didone-class display serif
+   12:1 stem-to-serif contrast ratio, chirality transforms
+   ============================================================ */
+
+/* ── Font-face declarations ──────────────────────────────── */
+@font-face {
+  font-family: "Barcelona-Extropic";
+  src: url("../fonts/barcelona-extropic-regular.woff2") format("woff2"),
+       url("../fonts/barcelona-extropic-regular.woff")  format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Barcelona-Extropic";
+  src: url("../fonts/barcelona-extropic-bold.woff2") format("woff2"),
+       url("../fonts/barcelona-extropic-bold.woff")  format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Locked constants ────────────────────────────────────── */
+:root {
+  /* Stem metrics — locked: 12px */
+  --be-stem:            12px;
+  --be-stem-weight:     var(--be-stem);   /* thick stroke = 12px */
+  --be-serif-weight:    1px;              /* thin serif = 1px → 12:1 contrast */
+  --be-contrast-ratio:  12;
+
+  /* Chirality */
+  --be-chirality-left:   scaleX(-1);
+  --be-chirality-right:  scaleX(1);
+
+  /* Scale */
+  --be-size-display:  6rem;
+  --be-size-headline: 3.5rem;
+  --be-size-title:    2.25rem;
+  --be-size-subtitle: 1.5rem;
+  --be-size-body:     1rem;
+  --be-size-caption:  0.75rem;
+
+  /* Leading */
+  --be-leading-display:  0.92;
+  --be-leading-headline: 1.0;
+  --be-leading-title:    1.1;
+  --be-leading-body:     1.45;
+
+  /* Letter-spacing */
+  --be-tracking-display:  -0.04em;
+  --be-tracking-headline: -0.025em;
+  --be-tracking-title:    -0.01em;
+  --be-tracking-body:      0em;
+  --be-tracking-caption:   0.06em;
+}
+
+/* ── Base class ──────────────────────────────────────────── */
+.be {
+  font-family: "Barcelona-Extropic", "Didot", "Bodoni MT", "Playfair Display", serif;
+  font-feature-settings: "liga" 1, "kern" 1, "onum" 1;
+}
+
+/* ── Scale utilities ─────────────────────────────────────── */
+.be-display {
+  font-size:      var(--be-size-display);
+  line-height:    var(--be-leading-display);
+  letter-spacing: var(--be-tracking-display);
+  font-weight:    700;
+}
+
+.be-headline {
+  font-size:      var(--be-size-headline);
+  line-height:    var(--be-leading-headline);
+  letter-spacing: var(--be-tracking-headline);
+  font-weight:    700;
+}
+
+.be-title {
+  font-size:      var(--be-size-title);
+  line-height:    var(--be-leading-title);
+  letter-spacing: var(--be-tracking-title);
+  font-weight:    400;
+}
+
+.be-subtitle {
+  font-size:   var(--be-size-subtitle);
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.be-body {
+  font-size:   var(--be-size-body);
+  line-height: var(--be-leading-body);
+  font-weight: 400;
+}
+
+.be-caption {
+  font-size:      var(--be-size-caption);
+  line-height:    1.4;
+  letter-spacing: var(--be-tracking-caption);
+  font-weight:    400;
+  text-transform: uppercase;
+}
+
+/* ── Chirality transforms ────────────────────────────────── */
+.be-chiral--left  { transform: var(--be-chirality-left); }
+.be-chiral--right { transform: var(--be-chirality-right); }
+
+/* ── Contrast inspection utility (dev only) ──────────────── */
+/* stem: 12px | contrast: 12:1 */
+.be-contrast-debug::after {
+  content: "stem: 12px | contrast: 12:1";
+  display: block;
+  font-family: monospace;
+  font-size: 0.625rem;
+  opacity: 0.4;
+}

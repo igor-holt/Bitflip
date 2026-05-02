@@ -1,0 +1,31 @@
+{
+  "$schema": "https://genesisconductor.io/schemas/evolution-v1.json",
+  "version": "2.3.0",
+  "phases": {
+    "current": 4,
+    "completed": ["phase-0", "phase-1", "phase-2", "phase-4"],
+    "next": "phase-5"
+  },
+  "constants": {
+    "locked": true,
+    "hash": "sha256:3f8b...a219",
+    "values": {
+      "signal_accent": "#27e070",
+      "stem_width": "12px",
+      "contrast_ratio": "12:1",
+      "J_coupling": 0.021,
+      "flip_bias": 0.14,
+      "tau_sw_ps": 6.8
+    }
+  },
+  "invariants": {
+    "test_count": 28,
+    "pass_required": 28,
+    "surfaces": ["marketing", "dashboard", "specimen"]
+  },
+  "audit": {
+    "chain": "ed25519",
+    "genesis_block": "36ec3e2e2005eccf617d030412c278b1fa9147cd",
+    "conductor_verified": true
+  }
+}

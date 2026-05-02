@@ -1,0 +1,222 @@
+/* ============================================================
+   ConductorKit — Design System CSS
+   Dark-first operator UI, tabular-numeric rows
+   Signal-green accent: #27e070
+   ============================================================ */
+
+:root {
+  /* Signal palette */
+  --signal-50:  #e8fdf0;
+  --signal-100: #c3f9d8;
+  --signal-200: #8ff5b4;
+  --signal-300: #56ed90;
+  --signal-400: #37e87d;
+  --signal-500: #27e070;
+  --signal-600: #1db85c;
+  --signal-700: #158f47;
+  --signal-800: #0d6633;
+  --signal-900: #063d1e;
+
+  /* Neutral surface palette — dark-first */
+  --surface-0:  #0a0a0a;
+  --surface-1:  #111111;
+  --surface-2:  #1a1a1a;
+  --surface-3:  #242424;
+  --surface-4:  #2e2e2e;
+  --surface-5:  #3a3a3a;
+
+  /* Text */
+  --text-primary:   #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --text-muted:     #606060;
+
+  /* Semantic aliases */
+  --color-accent:     var(--signal-500);
+  --color-background: var(--surface-0);
+  --color-surface:    var(--surface-1);
+  --color-border:     var(--surface-4);
+
+  /* Typography */
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Tabular row metrics */
+  --row-height: 2.5rem;
+  --row-padding-x: var(--space-4);
+  --row-border: 1px solid var(--color-border);
+}
+
+/* ── Reset ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--color-background);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Operator Table ──────────────────────────────────────── */
+.ck-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.ck-table thead th {
+  text-align: left;
+  padding: var(--space-2) var(--row-padding-x);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: var(--row-border);
+}
+
+.ck-table tbody tr {
+  height: var(--row-height);
+  border-bottom: var(--row-border);
+  transition: background-color 80ms ease;
+}
+
+.ck-table tbody tr:hover {
+  background-color: var(--surface-2);
+}
+
+.ck-table td {
+  padding: 0 var(--row-padding-x);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+/* ── Accent / Signal ─────────────────────────────────────── */
+.ck-signal {
+  color: var(--signal-500);
+}
+
+.ck-badge--active {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  border-radius: 3px;
+  background-color: rgba(39, 224, 112, 0.12);
+  color: var(--signal-500);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+}
+
+.ck-badge--active::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--signal-500);
+}
+
+/* ── Layout ──────────────────────────────────────────────── */
+.ck-layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+.ck-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-8);
+  background-color: var(--surface-1);
+  border-bottom: var(--row-border);
+}
+
+.ck-header__wordmark {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.ck-header__wordmark span {
+  color: var(--signal-500);
+}
+
+.ck-main {
+  padding: var(--space-8);
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.ck-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background-color: var(--surface-2);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 100ms ease, background-color 100ms ease;
+}
+
+.ck-btn:hover {
+  border-color: var(--signal-500);
+  background-color: var(--surface-3);
+}
+
+.ck-btn--primary {
+  background-color: var(--signal-500);
+  border-color: var(--signal-500);
+  color: #000;
+  font-weight: 600;
+}
+
+.ck-btn--primary:hover {
+  background-color: var(--signal-400);
+  border-color: var(--signal-400);
+}
+
+/* ── Stat card ───────────────────────────────────────────── */
+.ck-stat {
+  padding: var(--space-4);
+  background-color: var(--surface-1);
+  border: var(--row-border);
+  border-radius: 6px;
+}
+
+.ck-stat__label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.ck-stat__value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.ck-stat__value--accent {
+  color: var(--signal-500);
+}
