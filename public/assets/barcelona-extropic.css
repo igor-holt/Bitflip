@@ -28,7 +28,7 @@
   --be-stem:            12px;
   --be-stem-weight:     var(--be-stem);   /* thick stroke = 12px */
   --be-serif-weight:    1px;              /* thin serif = 1px → 12:1 contrast */
-  --be-contrast-ratio:  12;
+  --be-contrast-ratio:  12:1;
 
   /* Chirality */
   --be-chirality-left:   scaleX(-1);
