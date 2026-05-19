@@ -2,7 +2,7 @@
 /**
  * Evolution Guard — Genesis Conductor
  * Prevents regressions in locked constants and structural invariants.
- * Run: node scripts/evolution-guard.js [--phase N] [--verify]
+ * Run: node scripts/evolution-guard.js [--phase] [--verify]
  */
 
 const fs = require('fs');
