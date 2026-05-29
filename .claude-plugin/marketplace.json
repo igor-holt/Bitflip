@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "bitflip",
+  "owner": {
+    "name": "Igor Holt (@invariantx)",
+    "url": "https://github.com/igor-holt"
+  },
+  "description": "Bitflip experimental/personal project in the Igor Holt (@invariantx) GitHub surface. Lower-profile public straggler in the Claude Marketplace Manifest Rollout for complete public Genesis Conductor ecosystem coverage.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/igor-holt/Bitflip",
+  "keywords": [
+    "igor-holt",
+    "invariantx",
+    "bitflip",
+    "genesis-conductor",
+    "experimental",
+    "openclaw-ecosystem"
+  ],
+  "plugins": [
+    {
+      "name": "bitflip",
+      "source": "https://github.com/igor-holt/Bitflip",
+      "description": "Bitflip experimental project by @invariantx. Part of the broad personal/experimental public repos tied to Genesis Conductor research. Use the linked primary OpenClaw skills marketplace for the production persistent-state and orchestration stack.",
+      "version": "1.0.0",
+      "tags": ["experimental", "bitflip", "genesis-conductor"],
+      "category": "experimental",
+      "homepage": "https://github.com/igor-holt/Bitflip",
+      "keywords": ["bitflip igor holt", "@invariantx experimental"]
+    }
+  ],
+  "links": {
+    "github": "https://github.com/igor-holt/Bitflip",
+    "main-marketplace": "https://github.com/igor-holt/openclaw-skills",
+    "x": "https://x.com/invariantx"
+  }
+}
