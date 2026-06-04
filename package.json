@@ -1,0 +1,14 @@
+{
+  "name": "bitflip",
+  "version": "2.3.0",
+  "description": "Genesis Conductor — CI Identity & Evolutionary Framework",
+  "scripts": {
+    "ci:verify": "node scripts/evolution-guard.js --verify",
+    "ci:hash": "find public -type f -exec sha256sum {} \\; | sha256sum",
+    "phase:check": "node scripts/evolution-guard.js --phase",
+    "phase:advance": "echo 'Manual phase advancement requires Genesis Conductor audit'"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
